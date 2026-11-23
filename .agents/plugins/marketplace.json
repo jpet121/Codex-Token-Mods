@@ -1,0 +1,1 @@
+{"name":"local-token-tools","interface":{"displayName":"Local Token Tools"},"plugins":[{"name":"token-mods","source":{"source":"local","path":"./plugins/token-mods"},"policy":{"installation":"AVAILABLE","authentication":"ON_INSTALL"},"category":"Productivity"}]}

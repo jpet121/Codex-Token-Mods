@@ -1,0 +1,12 @@
+{
+  "name": "token-mods",
+  "version": "1.1.0",
+  "description": "Nine local context, usage, routing and handoff tools for ordinary Codex sessions.",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Token Mods",
+    "shortDescription": "Source-preserving context tools and observed usage"
+  }
+}
