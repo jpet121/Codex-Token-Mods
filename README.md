@@ -1,10 +1,12 @@
 # Token Mods for Codex · Context management and token usage on Windows
 
-**A report has 2,001 lines. You need one decision now and the exact source later.** Token Mods selects a short extract for a supported Codex read and saves the original tool result locally. When a chat gets long, it can also prepare a handoff for the next session and report the token counts Codex supplied.
+**Scenario.** A developer asks Codex for the delivery date buried in a 2,001-line report. Token Mods returns the line with the delivery date (`2026-12-03`) and saves the full tool result on disk.
+
+**Value.** The developer can work with the short extract and reopen the original when someone asks for the exact wording. When the chat gets long, a saved handoff lets the next session pick up the work.
 
 ![Offline replay of a 2,001-line report. Token Mods returns the delivery date, and the saved original matches the input exactly.](docs/images/social-preview.png)
 
-The example invokes the real plugin hook with a synthetic report. It finds the delivery date, reloads the saved original, and checks every character. You can repeat it from the source checkout with Python and no Codex sign-in or model call. [Read the replay](examples/replay_read.py)
+The offline example runs the plugin hook on a synthetic report and checks the saved copy character by character. Run it with Python from the source checkout. [Read the replay](examples/replay_read.py)
 
 ```powershell
 py -3 examples/replay_read.py
