@@ -138,7 +138,8 @@ class Completion(unittest.TestCase):
                 received.append(prompt.decode('utf-8'))
                 for event in (dict(type='turn.started'),dict(type='item.completed',item=dict(type='agent_message',text='Zoë 18400 USD.')),dict(type='turn.completed',usage=dict(input_tokens=10,cached_input_tokens=0,output_tokens=4))):
                     self.output.write((json.dumps(event)+'\n').encode())
-        with patch('runner.subprocess.Popen',Process):
+        # This fixture captures the worker invocation. It needs a resolvable executable on a clean host.
+        with patch.dict(os.environ, {'TOKEN_MODS_CODEX': sys.executable}), patch('runner.subprocess.Popen', Process):
             r=runner.run_worker('Extract final decision','input-router',self.session,file=path)
         self.assertTrue(r['accepted']); self.assertTrue(source in received[0].replace('\r\n','\n'),'Complete Unicode source must be embedded')
     def test_owned_session_timeout_interrupts_active_turn(self):
